@@ -13,15 +13,15 @@ jobs:
     steps:
       - name: CheckOut code
         uses: actions/checkout@v4
-    
+
       - name: Login to dockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_TOKEN}}
     
       - name: Build and Push
-        uses : docker/build-push-action@v4
+        uses : docker/build-push-action@v3
         with:
           context: .
           push: true
